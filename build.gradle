@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.5.3'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.talentbank'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-JPA'
+    implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+    implementation 'org.springframework.data:spring-data-elasticsearch:4.1.15'
+    implementation 'org.springframework.kafka:spring-kafka'
+//    implementation 'co.elastic.clients:elasticsearch-java:7.17.8'
+//    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+//    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.9.1'
+//    implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.9.3'
+//    implementation 'org.elasticsearch:elasticsearch:7.9.3'
+
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+
+
